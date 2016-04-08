@@ -33,9 +33,9 @@ object Scoverage extends Build {
       (v: String) =>
         val nexus = "https://oss.sonatype.org/"
         if (v.trim.endsWith("SNAPSHOT"))
-          Some(Resolver.sonatypeRepo("snapshots"))
+          Some("Lucid external snapshots" at "http://repo.lucidchart.com:8081/artifactory/ext-snapshot-local")
         else
-          Some("releases" at nexus + "service/local/staging/deploy/maven2")
+          Some("Lucid external releases" at "http://repo.lucidchart.com:8081/artifactory/ext-release-local")
     },
     pomExtra := {
       <url>https://github.com/scoverage/scalac-scoverage-plugin</url>
